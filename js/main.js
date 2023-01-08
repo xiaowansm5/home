@@ -1,9 +1,4 @@
-/*
-作者: imsyy
-主页：https://www.imsyy.top/
-GitHub：https://github.com/imsyy/home
-版权所有，请勿删除
-*/
+
 
 //弹窗样式
 iziToast.settings({
@@ -40,7 +35,11 @@ body.addEventListener('mousemove', (e) => {
     });
 });
 
-
+//移动端去除鼠标样式
+switch (true) {
+    case navigator.userAgent.indexOf('Mobile') > 0:
+        $('#g-pointer-2').css("display", "none");
+}
 
 //加载完成后执行
 window.addEventListener('load', function () {
@@ -66,19 +65,14 @@ window.addEventListener('load', function () {
     element.src = "./js/music.js";
     document.body.appendChild(element);
 
-    //中文字体缓加载-此处写入字体源文件 （暂时弃用）
+    //中文字体缓加载-此处写入字体源文件
     //先行加载简体中文子集，后续补全字集
     //由于压缩过后的中文字体仍旧过大，可转移至对象存储或 CDN 加载
-    // const font = new FontFace(
-    //     "MiSans",
-    //     "url(" + "./font/MiSans-Regular.woff2" + ")"
-    // );
-    // document.fonts.add(font);
-
-    //移动端去除鼠标样式
-    if (Boolean(window.navigator.userAgent.match(/AppWebKit.*Mobile.*/))) {
-        $('#g-pointer-2').css("display", "none");
-    }
+    const font = new FontFace(
+        "MiSans",
+        "url(" + "./font/MiSans-Regular.woff2" + ")"
+    );
+    document.fonts.add(font);
 
 }, false)
 
@@ -136,9 +130,9 @@ $('#hitokoto').click(function () {
 //获取天气
 //请前往 https://www.mxnzp.com/doc/list 申请 app_id 和 app_secret
 //请前往 https://dev.qweather.com/ 申请 key
-const add_id = "wrknltonr0foslhs"; // app_id
-const app_secret = "Nlh1c0F6d0ZDU2pDR0J3YVBVbkhudz09"; // app_secret
-const key = "433f0c48615a48dfaf2f2b2444297e79" // key
+const add_id = "ppq2nzgjplnl8hpk"; // app_id
+const app_secret = "N0xBdllSNHR6VVZIUEJ1RjRuYTJ1dz09"; // app_secret
+const key = "3d926102a85f40e2a9583ae69e9f0517" // key
 function getWeather() {
     fetch("https://www.mxnzp.com/api/ip/self?app_id=" + add_id + "&app_secret=" + app_secret)
         .then(response => response.json())
@@ -389,7 +383,7 @@ document.oncontextmenu = function () {
 }
 
 //控制台输出
-//console.clear();
+console.clear();
 let styleTitle1 = `
 font-size: 20px;
 font-weight: 600;
@@ -402,21 +396,11 @@ color: rgb(244,167,89);
 let styleContent = `
 color: rgb(30,152,255);
 `
-let title1 = '無名の主页'
+let title1 = 'XiaoWanSMの主页'
 let title2 = `
- _____ __  __  _______     ____     __
-|_   _|  \\/  |/ ____\\ \\   / /\\ \\   / /
-  | | | \\  / | (___  \\ \\_/ /  \\ \\_/ / 
-  | | | |\\/| |\\___ \\  \\   /    \\   /  
- _| |_| |  | |____) |  | |      | |   
-|_____|_|  |_|_____/   |_|      |_|                                                     
-`
-let content = `
-版 本 号：3.4
-更新日期：2022-07-24
 
-主页:  https://www.imsyy.top
-Github:  https://github.com/imsyy/home
+
+
 `
 console.log(`%c${title1} %c${title2}
 %c${content}`, styleTitle1, styleTitle2, styleContent)
