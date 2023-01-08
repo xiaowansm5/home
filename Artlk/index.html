@@ -1,0 +1,30 @@
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <title>artalk评论-XiaoWanSM</title>
+  <link rel="icon" href="https://gitlab.com/xiaowansm/img/-/raw/main/pictures/2022/12/23_14_50_26_202212231450900.svg">
+  <!-- ... -->
+
+  <!-- CSS -->
+<link href="https://cdn.bootcdn.net/ajax/libs/artalk/2.4.3/Artalk.css" rel="stylesheet">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+</head>
+<body>
+  <div id="Comments" style="max-width: 960px;margin: 0 auto;"></div>
+<!-- JS -->
+<script src="https://cdn.bootcdn.net/ajax/libs/artalk/2.4.3/Artalk.js"></script>
+
+<!-- Artalk -->
+<div id="Comments"></div>
+<script>
+new Artalk({
+  el:        '#Comments',                // 绑定元素的 Selector
+  pageKey:   '',                  // 固定链接 (留空自动获取)
+  pageTitle: '',  // 页面标题 (留空自动获取)
+  server:    'https://artalk.xiaowansm.repl.co',  // 后端地址
+  site:      'artalk评论-XiaoWanSM',             // 你的站点名
+})
+</script>
+</body>
+</html>
+
