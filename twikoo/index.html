@@ -1,0 +1,49 @@
+<html lang="zh-CN">
+  <head>
+   <meta charset="utf-8">   
+   <link rel="icon" href="https://gitlab.com/xiaowansm/img/-/raw/main/pictures/2022/12/23_14_50_26_202212231450900.svg">
+  <title>评论-XiaoWanSM</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no">
+</head>
+<div id="tcomment"></div>
+<script src="./twikoo.all.min.js"></script>
+<!-- lightGallery -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/css/lightgallery.css">
+<script src="https://cdn.jsdelivr.net/npm/lightgallery@2.1.8/lightgallery.min.js"></script>
+<script>
+twikoo.init({
+  envId: 'https://koo.wwang.pw', // 腾讯云环境填 envId；Vercel 环境填地址（https://xxx.vercel.app）
+  el: '#tcomment', // 容器元素
+  // region: 'ap-guangzhou', // 环境地域，默认为 ap-shanghai，腾讯云环境填 ap-shanghai 或 ap-guangzhou；Vercel 环境不填
+  // path: location.pathname, // 用于区分不同文章的自定义 js 路径，如果您的文章路径不是 location.pathname，需传此参数
+  // lang: 'zh-CN', // 用于手动设定评论区语言，支持的语言列表 https://github.com/imaegoo/twikoo/blob/main/src/client/utils/i18n/index.js
+
+  onCommentLoaded: function () {
+    var commentContents = document.getElementsByClassName('tk-content');
+    for (var i = 0; i < commentContents.length; i++) {
+      var commentItem = commentContents[i];
+      var imgEls = commentItem.getElementsByTagName('img');
+      if (imgEls.length > 0) {
+        for (var j = 0; j < imgEls.length; j++) {
+          var imgEl = imgEls[j];
+          var aEl = document.createElement('a');
+          aEl.setAttribute('class', 'tk-lg-link');
+          aEl.setAttribute('href', imgEl.getAttribute('src'));
+          aEl.setAttribute('data-src', imgEl.getAttribute('src'));
+          aEl.appendChild(imgEl.cloneNode(false));
+          imgEl.parentNode.insertBefore(aEl, imgEl.nextSibling);
+          imgEl.remove();
+        }
+        lightGallery(commentItem, {
+          selector: '.tk-lg-link',
+          share: false
+        });
+      }
+    }
+  }
+    
+})
+</script>
+
+
+</html>
