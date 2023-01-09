@@ -1,0 +1,217 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    overflow: hidden;
+}
+
+ul,
+ol {
+    list-style: none;
+}
+
+.clearfix::after {
+    content: '';
+    display: block;
+    clear: both;
+}
+
+#mycanvas {
+    background-size: 18px 18px;
+    background-image: linear-gradient(to right, #f5f6f7 1px, transparent 1px),
+        linear-gradient(to bottom, #f5f6f7 1px, transparent 1px);
+}
+
+.header {
+    height: 50px;
+    line-height: 50px;
+    background-color: #fff;
+    border: 1px solid #dddddd;
+    text-align: center;
+    font-size: 24px;
+    color: #131C26;
+}
+
+.container {
+    position: relative;
+}
+
+.container>.nav {
+    background-color: #fff;
+    border-bottom: 1px solid #D7DDE3;
+    padding: 10px 12px;
+}
+
+
+.container>.nav .left {
+    float: left;
+    width: 100px;
+    text-align: left;
+}
+
+.container>.nav .middle {
+    margin-left: 100px;
+    margin-right: 100px;
+    text-align: center;
+}
+
+.container>.nav .right {
+    float: right;
+    width: 100px;
+    text-align: center;
+    border: none;
+    border-radius: 3px;
+    background-color: #cb4a32;
+    cursor: pointer;
+    color: #fff;
+    font-size: 18px;
+    padding: 10px 16px
+}
+
+.container>.nav .left button,
+.container>.nav .middle button {
+    width: 40px;
+    height: 40px;
+    padding: 8px auto;
+    font-size: 20px;
+    border: none;
+    outline: none;
+    background-color: #1A9FFF;
+    color: #fff;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+
+.container>.nav>.middle>.tools,
+.container>.nav>.middle>.pensettings-thickness,
+.container>.nav>.middle>.pensettings-colors {
+    display: inline-block;
+    vertical-align: top;
+}
+
+.container>.nav>.middle>.tools>button {
+    border-radius: unset;
+    background-color: #fff;
+}
+
+.container>.nav>.middle>.tools>button.active {
+    border-bottom: 2px solid #1A9FFF;
+}
+
+.container>.nav>.middle>.tools svg {
+    width: 26px;
+    height: 26px;
+    fill: #000;
+}
+
+.pensettings-thickness {
+    position: relative;
+}
+
+.thickness {
+    position: relative;
+    display: block;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    border: 1px solid transparent;
+}
+
+.thickness .thickness-icon {
+    margin: 0 auto;
+    background-color: black;
+    border-radius: 50%;
+}
+
+.thickness span {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    right: 0;
+}
+
+#thicknes-panel {
+    display: none;
+    position: absolute;
+    width: 300px;
+    top: 0px;
+    left: 0px;
+    padding: 20px 0 10px;
+    border-radius: 6px;
+    box-shadow: 0 2px 10px rgba(6, 6, 7, .4);
+    background-color: white;
+}
+#thicknes-panel.active{
+    display: block;
+}
+
+#thicknes-panel>.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 20px;
+    height: 20px;
+    line-height: 20px;
+    color: #fff;
+    background-color: #d5d5d5;
+    text-decoration: none;
+}
+
+#thicknes-panel>.close:hover {
+    background-color: #b5b5b5;
+}
+
+.thickness-container {
+    margin-top: 10px;
+    text-align: center;
+}
+
+.thickness-container ul {
+    display: inline-block;
+}
+
+.thickness-container > ul > li {
+    float: left;
+    /* width: 40px; */
+    /* height: 40px; */
+    margin-right: 12px;
+    /* border: 1px solid red; */
+    text-align: center;
+}
+
+
+.selected::after {
+    content: '✔';
+    position: absolute;
+    display: block;
+    transform: translateX(75%) translateY(-50%);
+}
+
+.container>.nav>.middle .pensettings-colors>.black {
+    background-color: black;
+}
+
+.container>.nav>.middle .pensettings-colors>.grey {
+    background-color: grey;
+}
+
+.container>.nav>.middle .pensettings-colors>.blue {
+    background-color: #1A8CFF;
+}
+
+.container>.nav>.middle .pensettings-colors>.red {
+    background-color: red;
+}
+
+.container>.nav>.middle .pensettings-colors>.green {
+    background-color: #2BD965;
+}
+
+.container>.nav .middle .pensettings-colors>.yellow {
+    background-color: #FFDD33;
+}
+

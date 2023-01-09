@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>在线画板-wwang.pw</title>
+    <link rel="icon" href="./画板.svg">
+    <link rel="stylesheet" href="./main.css">
+    <style type="text/css">
+        .icon {
+            width: 1em;
+            height: 1em;
+            vertical-align: -0.15em;
+            fill: currentColor;
+            overflow: hidden;
+        }
+    </style>
+    <script src="//at.alicdn.com/t/font_1127882_xj2954wa4kg.js"></script>
+</head>
+
+<body>
+    <div class="header">在线画板</div>
+    <div class="container">
+        <div class="nav clearfix">
+            <div class="left">
+                <button class="clearCanvas">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-clear"></use>
+                    </svg>
+                </button>
+            </div>
+            <div class="right">
+                <div class="saveCanvas">
+                    <svg class="icon" aria-hidden="true">
+                        <use xlink:href="#icon-save"></use>
+                    </svg>
+                    保存
+                </div>
+            </div>
+            <div class="middle">
+                <div class="tools">
+                    <button class="brush active">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-pencil1"></use>
+                        </svg>
+                    </button>
+                    <button class="eraser">
+                        <svg class="icon" aria-hidden="true">
+                            <use xlink:href="#icon-eraser"></use>
+                        </svg>
+                    </button>
+                </div>
+                <div class="pensettings-thickness">
+                    <div class="thickness">
+                        <div class="thickness-icon" style="width: 5px;height: 5px; margin-top: 6px;"></div>
+                        <span>1</span>
+                    </div>
+                    <div id="thicknes-panel">
+                        <a href="javascript:;" class="close">✖</a>
+                        <div class="thickness-container">
+                            <ul class="clearfix">
+                                <li>
+                                    <div class="thickness">
+                                        <div class="thickness-icon" style="width: 5px; height: 5px; margin-top: 6px;">
+                                        </div>
+                                        <span>1</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thickness">
+                                        <div class="thickness-icon" style="width: 8px; height: 8px; margin-top: 5px;">
+                                        </div>
+                                        <span>2</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thickness">
+                                        <div class="thickness-icon" style="width: 10px; height: 10px; margin-top: 3px;">
+                                        </div>
+                                        <span>3</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thickness">
+                                        <div class="thickness-icon" style="width: 14px; height: 14px; margin-top: 2px;">
+                                        </div>
+                                        <span>4</span>
+                                    </div>
+                                </li>
+                                <li>
+                                    <div class="thickness">
+                                        <div class="thickness-icon" style="width: 17px; height: 17px; margin-top: 0px;">
+                                        </div>
+                                        <span>5</span>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="pensettings-colors">
+                    <button class="black selected" data-color="black"></button>
+                    <button class="grey " data-color="grey"></button>
+                    <button class="blue " data-color="blue"></button>
+                    <button class="red " data-color="red"></button>
+                    <button class="green " data-color="#2BD965"></button>
+                    <button class="yellow " data-color="#FFDD33"></button>
+
+                </div>
+            </div>
+        </div>
+
+        <canvas id="mycanvas" width="600" height="300"></canvas>
+
+    </div>
+    <script src="./index.js"></script>
+
+</body>
+
+</html>
