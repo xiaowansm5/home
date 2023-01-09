@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <title>便携小电视 | 时光's Blog</title>
+    <!--为搜索引擎定义关键词-->
+    <meta name="keywords" content="时光's Blog">
+    <!--为网页定义描述内容 用于告诉搜索引擎，你网站的主要内容-->
+    <meta name="description" content="便携小电视 | 时光's Blog"> 
+    <!--定义网页作者-->
+    <meta name="author" content="时光's Blog"> 
+    <!--网站版权-->
+    <meta name="copyright" content="时光's Blog">
+    <!--指定IE和Chrome使用最新版本渲染当前页面-->
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+    <!--指导浏览器如何缓存某个响应以及缓存多长时间-->
+    <!--no-cache:先发送请求,与服务器确认该资源是否被更改,如果未被更改,则使用缓存
+    no-store:不允许缓存,每次都要去服务器上,下载完整的响应(安全措施)
+    public:缓存所有响应,但并非必须,因为max-age也可以做到相同效果
+    private:只为单个用户缓存,因此不允许任何中继进行缓存,(比如说CDN就不允许缓存private的响应)
+    maxage:当前请求开始,该响应在多久内能被缓存和重用,而不去服务器重新请求,例:max-age=60表示响应可以再缓存和重用60秒
+    -->
+    <meta http-equiv="cache-control" content="no-cache">
+    <!--禁止百度自动转码 用于禁止当前页面在移动端浏览时,被百度自动转码,虽然百度的本意是好的,但是转码效果很多时候却不尽人意-->
+    <!--meta http-equiv="Cache-Control" content="no-siteapp" /-->
+    <!-- 分享网页时显示的标题-QQ-->
+    <meta itemprop="name" content="便携小电视 | 时光's Blog" />
+    <!-- 分享网页时显示的缩略图-QQ-->
+    <meta itemprop="image" content="http://sh.suvvs.com/chucun/img/logo/favicon.png" />
+    <!--分享网页时时显示的内容-QQ-->
+    <meta name="description" itemprop="description" content="便携小电视" />
+    <!--设置自动适应电脑和手机屏幕--> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0,minimum-scale=1.0, user-scalable=no minimal-ui">
+    <!--设置浏览器栏favicon图标-->
+    <link rel="icon" href="https://img.x-wan.top/imgs/2022/03/3de28e3497bd79b2.png" type="image/x-icon"/>
+    <!--定义搜索引擎爬虫的索引方式-->
+    <!--index,follow:可以抓取本页，而且可以顺着本页继续索引别的链接
+    noindex,follow:不许抓取本页，但是可以顺着本页抓取索引别的链接
+    index,nofollow:可以抓取本页，但是不许顺着本页抓取索引别的链接
+    noindex,nofollow:不许抓取本页，也不许顺着本页抓取索引别的链接
+    -->
+    <meta name="robots" content="index,follow">
+    <!--引入css文件-->
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" href="//at.alicdn.com/t/font_1092713_dms9qesqr9u.css">
+    <!--引入js文件-->
+    <!--script type="text/javascript" src="main.js"></script-->
+</head>
+
+<style type="text/css">
+video::-webkit-media-controls{
+    display:none !important;
+}
+    
+    </style>
+
+<body>
+<!--
+
+-->
+    <div class="centent">
+
+        <div class="main">
+            <!-- 电视区 -->
+            <div class="ds">
+                <!-- 电视边框 -->
+                <div class="ds-wk" id="bg">
+                    <!-- 电视视频显示区 -->
+                    <!--视频-->
+<div id="vid" class="m" style="display: none;"></div><!--状态-->
+
+        <video id="video1" class="video" style="display: none;" poster="./assets/img/bg.gif">
+          <source src="./api.php" type="video/mp4">
+          <source src="./api.php" type="video/ogg">
+          您的浏览器不支持 HTML5 video 标签。
+        </video>
+      </div>
+                    <!-- 电视视频显示区 -->
+
+                </div>
+                <!-- 电视底部增加边框 -->
+                <div class="ds-wk-btt">
+                    <div class="ds-wk-btt-bz"></div>
+                    <div class="ds-wk-btt-bz2"></div>
+                </div>
+
+
+
+
+                <!-- 遥控器区 -->
+            <div class="yao">
+                <div class="yao-an">
+                    <!-- 开机 -->
+                    <div class="yao-an-on" onclick="on()"><i class="iconfont icon-guanji"></i></div>
+                    <!-- 关机 -->
+                    <div class="yao-an-off" onclick="off()"><i class="iconfont icon-guanji"></i></div>
+                </div>
+
+                <!-- 音量加 -->
+                <div class="yao-an-yl">
+                    <div class="yao-an-yl-jia" onclick="setHalfVolume()"><i class="iconfont icon-yinliangjia"></i></div>
+                </div>
+
+
+
+
+                <!-- 换台 -->
+                <div class="yao-an-ht">
+                    <!-- 换台左 -->
+                    <div class="yao-an-ht-zuo" onclick="ht()"><i class="iconfont icon-ziyuan1"></i></div>
+
+                    <!-- 暂停和播放 -->
+                    <div class="yao-an-ht-you" onclick="playPause()"><i id="zt" class="iconfont icon-jixu"></i></div>
+
+                    <!-- 换台右 -->
+                    <div id="ht" class="yao-an-ht-you" onclick="ht()"><i class="iconfont icon-you"></i></div>
+                </div>
+
+
+
+
+                
+                
+                
+                <!-- 音量减 -->
+                <div class="yao-an-yl">
+                    <div class="yao-an-yl-jian" onclick="setFullVolume()"><i class="iconfont icon-yinliangjian"></i></div>
+                </div>
+            
+            
+
+            </div>
+            <!-- 遥控器区 -->
+
+            <!-- 底部版权 -->
+            <div class="footer">
+                <div class="Copyright">© 2022 <a href="https://blog.wwang.pw/" > 时光's Blog</a>. All rights reserved.</div>
+            </div>
+        </div>
+</div>
+
+
+
+
+
+<!-- 换台 -->
+<script>
+function ht(){
+    var vidz =document.getElementById('vid').className;
+    if (vidz == "m") {
+        alert("请先开机");
+    }
+    else{
+        var vidz = document.getElementById('video1').src = './api.php';
+        document.getElementById("video1").play();
+        zt.className = "iconfont icon-zantingtingzhi";
+    }          
+}
+</script>
+
+
+
+
+
+
+
+
+<!-- 自动播放下一个视频 -->
+
+<script>
+
+
+    var elevideo = document.getElementById("video1");
+    elevideo.addEventListener('ended', function () { //结束
+console.log("播放结束");
+var vidz = document.getElementById('video1').src = './api.php';
+                document.getElementById("video1").play();
+                zt.className = "iconfont icon-zantingtingzhi";
+}, false);
+
+
+
+
+</script>
+
+
+
+
+<!-- 
+
+<button onclick="playPause()">播放</button> 
+                    <button onclick="makeBig()">暂停</button>
+
+                    <button onclick="setHalfVolume()" type="button">音量加</button>
+
+              <button onclick="setFullVolume()" type="button">音量减</button> -->
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 开机 -->
+<script>
+    function on(){
+    document.getElementById('video1').style.display='block'; 
+    var vidz = document.getElementById('vid').className = 'k';
+                
+}
+</script>
+<!-- 关机 -->
+<script>
+    function off(){
+    document.getElementById('video1').style.display='none';  
+    var vidz = document.getElementById('vid').className = 'm';
+    myVideo.pause();
+    zt.className = "iconfont icon-jixu";
+}
+</script>
+
+
+
+
+
+
+
+      <!-- 设置播放与暂停 -->
+      <script> 
+        var myVideo=document.getElementById("video1"); 
+        /* var o =document.getElementById("video1").style.display; */
+        
+
+        function playPause()
+        {
+            var vidz =document.getElementById('vid').className;
+            if (vidz == "m") {
+                alert("请先开机");
+            }
+            else{
+                /* 播放 */
+                if (myVideo.paused)
+                {
+                    myVideo.play();
+                    zt.className = "iconfont icon-zantingtingzhi";
+                }
+                else
+                {/* 暂停 */
+                    myVideo.pause();
+                    zt.className = "iconfont icon-jixu";
+                }
+            }
+            
+            
+        } 
+        </script>  
+
+
+    <!-- 设置音量加减 -->
+    <script>
+        myVid=document.getElementById("video1");
+        myVid.volume=0.2;
+        function setHalfVolume()
+        {
+            var yl=myVid.volume+0.01
+            myVid.volume=yl;
+        } 
+        function setFullVolume()
+        {
+            var yl=myVid.volume-0.01
+            myVid.volume=yl;
+        }
+    </script> 
+
+
+
+
+
+
+
+
+</body>
+</html>
