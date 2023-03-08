@@ -1,0 +1,218 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=0">
+    <meta name="renderer" content="webkit">
+    <meta name="author" content="mengkun">
+    <meta name="generator" content="KodCloud">
+    <meta name="referrer" content="no-referrer">
+    <meta http-equiv="Cache-Control" content="no-siteapp">
+    
+    <!-- 强制移动设备以app模式打开页面(即在移动设备下全屏，仅支持部分浏览器) -->
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-touch-fullscreen" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="full-screen" content="yes"><!--UC强制全屏-->
+    <meta name="browsermode" content="application"><!--UC应用模式-->
+    <meta name="x5-fullscreen" content="true"><!--QQ强制全屏-->
+    <meta name="x5-page-mode" content="app"><!--QQ应用模式-->
+    
+    <title>时光音乐-在线听歌房|收费歌曲在线下载</title>
+    <meta name="description" content="MxuePlay是一个以H5 + JavaScript + php为基础开发的在线听歌房，除了可以在线听歌，还可以免费下载各大音乐网站的收费歌曲，欢迎各位音乐爱好者前来体验。"/>
+    <meta name="keywords" content="MKOnlinePlayer,MxuePlay,在线听歌房,热门歌曲下载,网易云音乐免费下载,QQ音乐免费下载,酷狗音乐免费下载"/>
+    
+    <!-- 不支持IE8及以下版本浏览器 -->
+    <!--[if lte IE 8]>
+        <script>window.location.href="plugns/killie/"</script>
+    <![endif]--> 
+    
+    <!-- favicon图标 -->
+    <link rel="shortcut icon" href="favicon.ico">
+    
+    <!-- jQuery文件 -->
+    <script src="js/jquery.min.js"></script>
+    
+    <!-- layui样式文件 -->
+    <link rel="stylesheet" href="plugns/layui/css/layui.css">
+    
+    <!-- 滚动条美化样式文件 -->
+    <link rel="stylesheet" type="text/css" href="css/jquery.mCustomScrollbar.min.css">
+
+    <!-- 播放器样式表文件 -->
+    <link rel="stylesheet" type="text/css" href="css/player.css">
+    
+    <!-- 小屏幕样式修复 -->
+    <link rel="stylesheet" type="text/css" href="css/small.css">
+    
+    <!-- 自定义css样式 -->
+    <style>
+        #layer-placard-content {
+            padding: 0 15px;
+        }
+        #layer-placard-content > li {
+            padding: 4px 0;
+            line-height: 1.5;
+            font-size: 13px;
+            list-style: decimal;
+        }
+    </style>
+</head>
+<body>
+
+<div id="blur-img"></div>
+
+<!-- 头部logo -->
+<div class="header">
+    <div class="logo" title="Version 2.4; Based on Meting; Powered by Mengkun">
+        ♫ 时光音乐
+    </div>
+    <div class="banner_text">
+        <a href="javascript:;">
+            <img src="images/avatar.png">
+            <span>歌曲热评/评论</span>
+        </a>
+    </div>
+</div>  <!--class="header"-->
+
+<!-- 中间主体区域 -->
+<div class="center">
+    <div class="container">
+        <div class="btn-bar">
+            <!-- tab按钮区 -->
+            <div class="btn-box" id="btn-area">
+                <span class="btn" data-action="player" hidden>播放器</span>
+                <span class="btn" data-action="playing" title="正在播放列表">正在播放</span>
+                <span class="btn" data-action="sheet" title="音乐播放列表">播放列表</span>
+                <span class="btn" data-action="search" title="点击搜索音乐">歌曲搜索</span>
+            </div>
+        </div>  <!--class="btn-bar"-->
+        
+        <div class="data-area">
+            <!--歌曲歌单-->
+            <div id="sheet" class="data-box" hidden></div>
+            
+            <!--音乐播放列表-->
+            <div id="main-list" class="music-list data-box"></div>
+        </div>  <!--class="data-area"-->
+        
+        <!-- 右侧封面及歌词展示 -->
+        <div class="player" id="player">
+            <!--歌曲封面-->
+            <div class="cover">
+                <img src="images/player_cover.png" class="music-cover" id="music-cover">
+            </div>
+            <!--滚动歌词-->
+            <div class="lyric">
+                <ul id="lyric"></ul>
+            </div>
+            <div id="music-info" title="点击查看歌曲信息"></div>
+        </div>
+    </div>  <!--class="container"-->
+</div>  <!--class="center"-->
+
+<!-- 播放器底部区域 -->
+<div class="footer">
+    <div class="container">
+        <div class="con-btn">
+            <a href="javascript:;" class="player-btn btn-prev" title="上一首"></a>
+            <a href="javascript:;" class="player-btn btn-play" title="暂停/继续"></a>
+            <a href="javascript:;" class="player-btn btn-next" title="下一首"></a>
+			<a href="javascript:;" class="player-btn btn-order" title="循环控制"></a>
+        </div>  <!--class="con-btn"-->
+        
+        <div class="vol">
+            <div class="quiet">
+                <a href="javascript:;" class="player-btn btn-quiet" title="静音"></a>
+            </div>
+            <div class="volume">
+                <div class="volume-box">  
+                    <div id="volume-progress" class="mkpgb-area"></div>
+                </div>
+            </div>
+        </div>  <!--class="footer"-->
+        
+        <div class="progress">
+            <div class="progress-box">  
+                <div id="music-progress" class="mkpgb-area"></div>
+                <div class="audio-time">00:00/00:00</div>
+            </div>
+        </div>  <!--class="progress"-->
+    </div>  <!--class="container"-->
+</div>  <!--class="footer"-->
+
+<!-- layui插件 -->
+<script src="plugns/layui/layui.js"></script>
+
+<!-- 播放器主体功能模块 -->
+<script src="js/player.js"></script>
+
+<!-- 播放器数据加载模块 -->
+<script src="js/ajax.js"></script>
+
+<!-- 播放器歌词解析模块 -->
+<script src="js/lyric.js"></script>
+
+<!-- 音乐列表配置 -->
+<script src="js/musicList.js"></script>
+
+<!-- 封装函数及ui交互模块 -->
+<script src="js/functions.js"></script>
+
+<!-- 滚动条美化插件 -->
+<script src="js/jquery.mCustomScrollbar.concat.min.js"></script>
+
+<!-- 背景模糊化插件 -->
+<script src="js/background-blur.min.js"></script>
+
+<!-- 自定义js -->
+<script>
+    $(function () {
+        (function () {
+            var cnzz_s_tag = document.createElement('script');
+            cnzz_s_tag.type = 'text/javascript';
+            cnzz_s_tag.async = true;
+            cnzz_s_tag.charset = 'utf-8';
+            cnzz_s_tag.src = 'https://w.cnzz.com/c.php?id=1273282175&async=1';
+            var root_s = document.getElementsByTagName('script')[0];
+            root_s.parentNode.insertBefore(cnzz_s_tag, root_s);
+        })();
+    });
+</script>
+
+<!-- 搜索弹窗 -->
+<script type="text/html" id="layer-form-box">
+    <div id="layer-form-content">
+        <form class="layui-form" onSubmit="return searchSubmit()" action="" id="search-area">
+            <div class="search-input">
+                <input type="text" name="wd" id="search-wd" required  lay-verify="required" placeholder="搜索歌手、歌名、专辑" autocomplete="on" class="layui-input">
+                <button class="layui-btn" lay-submit type="submit">搜 索</button>
+            </div>
+            <div class="source-radio" id="music-source">
+                <label><input type="radio" name="source" value="netease" checked title="网易云"></label>
+                <label><input type="radio" name="source" value="kugou" title="酷狗"></label>
+                <label><input type="radio" name="source" value="tencent" title="QQ"></label>
+                <!-- 致敬永远存在的虾米音乐 start -->
+                <label><input type="radio" name="source" value="xiami" title="虾米" disabled></label>
+                <!-- end -->
+                <label><input type="radio" name="source" value="baidu" title="百度"></label>
+            </div>
+        </form>
+    </div>
+</script>
+
+<!-- 公告html -->
+<script type="text/html" id="layer-placard-box">
+    <ul id="layer-placard-content">
+        <li>由于本站歌曲和封面图片较多，所以第一次加载会比较慢，耐心稍等一会就行。</li>
+        <li>PC端可使用快捷键控制，Ctrl+左方向键=上一首、Ctrl+右方向键=下一首、空格键=播放/暂停。</li>
+        <li>移动端（手机、平板用户）请双击播放，第一次点击是加载，第二点击是播放，为防止误操作。</li>
+        <li>有事可以联系站长QQ&nbsp;<a href="http://wpa.qq.com/msgrd?v=3&amp;uin=85151535&amp;site=qq&amp;menu=yes" target="_blank" style="color: #72ACE3">85151535</a>，不经常在线，有事请留言。</li>
+        <li>站长的博客：<a href="http://blog.hhao.cc/" target="_blank" style="color: #72ACE3">https://blog.hhao.cc</a></li>
+    </ul>
+</script>
+
+</body>
+
+</html>
