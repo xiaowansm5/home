@@ -1,0 +1,87 @@
+[
+    {
+        "icon": "Link",
+        "title": "网站列表",
+        "items": [
+            [
+                {
+                    "icon": "Blog",
+                    "name": "博客",
+                    "url": "https://blog.sfast.cc/"
+                }, {
+                    "icon": "ShoppingCart",
+                    "name": "商店",
+                    "url": "https://enna.eu.org/"
+                }, {
+                    "icon": "AlignJustify",
+                    "name": "网址集",
+                    "url": "https://nav.sfast.cc/"
+                }, {
+                    "icon": "CompactDisc",
+                    "name": "音乐库",
+                    "url": "https://music.wwang.eu.org/"
+                }, {
+                    "icon": "Cloud",
+                    "name": "固件仓库",
+                    "url": "https://pan.wwang.pw"
+                }, {
+                    "icon": "Images",
+                    "name": "高清壁纸",
+                    "url": "https://pan.wwang.pw"
+                }
+
+            ], [
+                    {
+                    "icon": "Train",
+                    "name": "博客镜像站",
+                    "url": "https://blog.wwang.pw/"
+                }, {
+                    "icon": "NewspaperRegular",
+                    "name": "每日早报",
+                    "url": "https://news.enna.eu.org/"
+                }, {
+                    "icon": "",
+                    "name": "缩短网址",
+                    "url": "https://u.xwsm.tk/"
+                }, {
+                    "icon": "Images",
+                    "name": "图床",
+                    "url": "https://xwsm.eu.org/"
+                }, {
+                    "icon": "Cloud",
+                    "name": "时光云盘",
+                    "url": "https://p.wwang.pw/"
+                }, {
+                    "icon": "CompactDisc",
+                    "name": "在线音乐",
+                    "url": "https://blog.wwang.pw/Onlinemusic/"
+                }
+                
+            ]
+        ]
+    }, {
+        "icon": "Bars",
+        "title": "功能列表",
+        "items": [
+            [
+                {
+                    "icon": "PencilAlt",
+                    "name": "一言",
+                    "method": "hitokoto"
+                }, {
+                    "icon": "SlidersH",
+                    "name": "播放器",
+                    "method": "player"
+                }, {
+                    "icon": "Music",
+                    "name": "音乐列表",
+                    "method": "music"
+                }, {
+                    "icon": "Cog",
+                    "name": "全局设置",
+                    "method": "setting"
+                }
+            ]
+        ]
+    }
+]
